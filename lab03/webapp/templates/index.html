@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Movie Recommendation System</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+ 
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Sistema de Recomendação de Filmes</h1>
+      </div>
+  
+      <div class="row">
+          <div class="col-lg-6">
+              <form action="{{ url_for('get_recommendation') }}" method="post">
+                <input type="text" name="uid" placeholder="ID do Usuário">
+                <input type="submit">
+              </form>
+          </div>
+      </div>
+      <div class="row">
+          <h3> Filmes Recomendados </h3>
+          <div class="col-lg-6">
+            <ul>
+              {% for movie in movies %}
+                <li>{{ movie }} </li>
+              {% endfor %}
+            </ul>
+          </div>
+      </div>
+
+      <div class="row">
+          <h3> Usuários Similares </h3>
+          <div class="col-lg-6">
+            <ul>
+              {% for user in similar_users %}
+                <li>{{ user }} </li>
+              {% endfor %}
+            </ul>
+          </div>
+      </div>
+  
+      <footer class="footer">
+          <p>&copy; Samantha Monteiro 2018</p>
+      </footer>
+  
+    </div>
+  </body>
+ 
+</html>
